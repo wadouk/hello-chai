@@ -1,9 +1,8 @@
-"use strict";
 module.exports = function(config) {
   config.set({
 
     browsers : ["PhantomJS"],
-    singleRun : false,
+    singleRun : true,
     frameworks : ["mocha"],
     files : [
       "test/index.js"
@@ -13,21 +12,14 @@ module.exports = function(config) {
     },
     reporters : ["dots"],
     webpack : {
-      devtool : "inline-source-map",
       module : {
         loaders : [
           {
-            test : /\.jsx|\.js$/,
+            test : /\.js$/,
             loader : "babel-loader"
           }
         ]
-      },
-      node : {
-        fs : "empty"
       }
-    },
-    webpackServer : {
-      noInfo : true
     }
 
   });
