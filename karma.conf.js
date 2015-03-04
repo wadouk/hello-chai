@@ -1,3 +1,6 @@
+const path = require("path");
+const nodeModulesDir = path.join(__dirname, "node_modules");
+
 module.exports = function(config) {
   config.set({
 
@@ -16,7 +19,9 @@ module.exports = function(config) {
         loaders : [
           {
             test : /\.js$/,
-            loader : "babel-loader"
+            loader : "babel-loader",
+            // Don't forget to exclude node modules
+            exclude : [nodeModulesDir]
           }
         ]
       }
